@@ -12,7 +12,7 @@ public class FML2CRPMResetCompleteDecoder extends ChannelInboundHandlerAdapter {
   @Override
   public void channelRead(ChannelHandlerContext ctx, Object msg) {
     if (msg instanceof ByteBuf buf) {
-      if (!ctx.channel().isActive() || !buf.isReadable()) {
+      if (!ctx.channel().isActive()) {
         buf.release();
         return;
       }
